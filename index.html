@@ -2,21 +2,21 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>DPC Distance Measurement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>DPC Tracking</title>
 
   <style>
     :root {
       --navy: #002878;
-      --navy-2: #0748ca;
+      --blue: #0748ca;
       --gold: #d2b000;
-      --gray: #f4f6f8;
-      --text: #222;
-      --muted: #666;
-      --border: #d9dde5;
-      --danger: #98002e;
-      --success: #16803c;
-      --white: #fff;
+      --maroon: #98002e;
+      --text: #253746;
+      --muted: #667085;
+      --light: #f6f8fb;
+      --border: #d8dde6;
+      --white: #ffffff;
     }
 
     * {
@@ -27,64 +27,27 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      background: #ffffff;
+      background: var(--light);
       line-height: 1.5;
     }
 
     header {
       background: var(--navy);
       color: white;
-      padding: 14px 20px;
+      padding: 18px 20px;
       text-align: center;
     }
 
-    header nav {
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-      flex-wrap: wrap;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    header nav a {
-      color: white;
-      text-decoration: none;
-    }
-
-    header nav a:hover {
-      color: var(--gold);
-    }
-
-    .hero {
-      padding: 64px 20px;
-      text-align: center;
-      color: white;
-      background:
-        linear-gradient(rgba(7, 13, 40, 0.82), rgba(7, 13, 40, 0.82)),
-        radial-gradient(circle at top left, #1e73be, #002878);
-    }
-
-    .hero-card {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 32px 22px;
-      background: rgba(30, 115, 190, 0.48);
-      border-radius: 14px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-    }
-
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    .hero p {
+    header h1 {
       margin: 0;
-      font-size: 1.15rem;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      color: #dce6ff;
+      font-size: 0.95rem;
     }
 
     main {
@@ -93,41 +56,79 @@
       padding: 28px 18px 60px;
     }
 
-    .intro {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 20px;
-      align-items: center;
-      background: #fff;
+    .hero {
+      background: white;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 26px;
       margin-bottom: 24px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
     }
 
-    .intro-icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: white;
-      display: grid;
-      place-items: center;
-      font-size: 34px;
-      font-weight: bold;
+    .hero h2 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 2rem;
     }
 
-    .intro p {
+    .hero p {
       margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .instruction-card {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 24px;
+      align-items: center;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    }
+
+    .instruction-card h2 {
+      color: var(--navy);
+      margin-top: 0;
+    }
+
+    .instruction-card ol {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+
+    .instruction-card li {
+      margin-bottom: 8px;
+    }
+
+    .instruction-image {
+      text-align: center;
+    }
+
+    .instruction-image img {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .instruction-image p {
+      margin: 8px 0 0;
+      font-size: 0.88rem;
+      color: var(--muted);
     }
 
     .notice {
       background: #fff8e5;
       border-left: 5px solid var(--gold);
       padding: 14px 16px;
-      border-radius: 8px;
-      margin: 18px 0 24px;
+      border-radius: 10px;
+      margin-bottom: 24px;
       font-size: 0.95rem;
     }
 
@@ -141,8 +142,8 @@
     .panel {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
+      border-radius: 16px;
+      padding: 20px;
       box-shadow: 0 8px 22px rgba(0,0,0,0.06);
     }
 
@@ -162,15 +163,6 @@
       margin-bottom: 8px;
     }
 
-    .steps {
-      padding-left: 20px;
-      margin-top: 8px;
-    }
-
-    .steps li {
-      margin-bottom: 9px;
-    }
-
     label {
       display: block;
       font-weight: 700;
@@ -181,20 +173,17 @@
 
     input,
     select,
-    button,
-    textarea {
+    button {
       font: inherit;
     }
 
     input[type="text"],
     input[type="date"],
-    input[type="number"],
-    select,
-    textarea {
+    select {
       width: 100%;
       padding: 10px 12px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 9px;
       background: white;
     }
 
@@ -202,8 +191,8 @@
       width: 100%;
       padding: 10px;
       border: 1px dashed var(--border);
-      border-radius: 8px;
-      background: var(--gray);
+      border-radius: 9px;
+      background: var(--light);
     }
 
     button {
@@ -218,7 +207,7 @@
     }
 
     button:hover {
-      background: var(--navy-2);
+      background: var(--blue);
     }
 
     button.secondary {
@@ -231,7 +220,7 @@
     }
 
     button.danger {
-      background: var(--danger);
+      background: var(--maroon);
     }
 
     button.danger:hover {
@@ -250,12 +239,12 @@
       border-radius: 12px;
       padding: 14px;
       margin-top: 14px;
-      background: var(--gray);
+      background: var(--light);
     }
 
     .mode-current {
       font-weight: 800;
-      color: var(--danger);
+      color: var(--maroon);
     }
 
     .canvas-wrap {
@@ -348,35 +337,30 @@
 
     .status.good {
       background: #e8f8ee;
-      color: var(--success);
+      color: #16803c;
     }
 
     .status.warn {
       background: #fff1f5;
-      color: var(--danger);
+      color: var(--maroon);
     }
 
-    .footer {
-      border-top: 2px solid rgba(210, 142, 0, 0.69);
-      margin-top: 45px;
-      padding-top: 18px;
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 18px 40px;
       text-align: center;
-      color: rgba(2, 1, 1, 0.72);
-      font-size: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
+      .instruction-card {
+        grid-template-columns: 1fr;
+      }
+
       .app-grid {
         grid-template-columns: 1fr;
-      }
-
-      .intro {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .intro-icon {
-        margin: 0 auto;
       }
 
       .canvas-wrap {
@@ -388,33 +372,40 @@
 
 <body>
   <header>
-    <nav>
-      <a href="/">DPC Measurement</a>
-    </nav>
+    <h1>DPC Tracking</h1>
+    <p>Distal palmar crease distance measurement from a smartphone photo</p>
   </header>
 
-  <section class="hero">
-    <div class="hero-card">
-      <h1>DPC Distance</h1>
-      <p>Measure distal palmar crease distance from a smartphone photo using a U.S. penny for scale.</p>
-    </div>
-  </section>
-
   <main>
-    <section class="intro">
-      <div class="intro-icon">✋</div>
+    <section class="hero">
+      <h2>Measure finger-to-palm distance from a photo</h2>
+      <p>
+        Upload a hand photo, calibrate the image using a U.S. penny, then click the fingertip and distal palmar crease
+        to estimate distal palmar crease distance.
+      </p>
+    </section>
+
+    <section class="instruction-card">
       <div>
-        <p>
-          This tool estimates the distance from the fingertip to the distal palmar crease on a hand photo.
-          Upload a photo, calibrate the image using a U.S. penny, then click the fingertip and distal palmar crease
-          for each finger you want to measure.
-        </p>
+        <h2>How to take the photo</h2>
+        <ol>
+          <li>Place the hand palm-up with the fingers curled into a fist.</li>
+          <li>Keep the palm, fingertips, and distal palmar crease visible.</li>
+          <li>Place a U.S. penny flat on the wrist or palm in the same plane as the hand.</li>
+          <li>Take the photo straight-on, not from an angle.</li>
+          <li>Avoid shadows, blur, and extreme close-up distortion.</li>
+        </ol>
+      </div>
+
+      <div class="instruction-image">
+        <img src="images/dpc-photo-instructions.png" alt="Line art showing proper DPC photo setup with curled fingers and a penny for scale">
+        <p>Example photo setup: curled fingers, palm visible, penny for scale.</p>
       </div>
     </section>
 
     <div class="notice">
-      <strong>Photo tip:</strong> Place a U.S. penny flat in the same plane as the hand. Keep the camera straight-on,
-      avoid angled shots, and make sure the fingertip, distal palmar crease, and penny are all visible.
+      <strong>Photo tip:</strong> The penny must be in the same plane as the hand. If the penny is closer to the camera
+      than the fingers, the measurement will be inaccurate.
     </div>
 
     <section class="app-grid">
@@ -440,24 +431,12 @@
         <div class="mode-box">
           <h3>Current Step</h3>
           <div id="modeText" class="mode-current">1. Upload an image</div>
-          <p class="small" id="instructionText">
-            Choose a hand photo to begin.
-          </p>
+          <p class="small" id="instructionText">Choose a hand photo to begin.</p>
         </div>
-
-        <h3>How to Use</h3>
-        <ol class="steps">
-          <li>Upload a photo with a U.S. penny visible.</li>
-          <li>Click one edge of the penny.</li>
-          <li>Click the opposite edge of the penny.</li>
-          <li>Select the finger you want to measure.</li>
-          <li>Click the fingertip.</li>
-          <li>Click the distal palmar crease point.</li>
-          <li>Repeat for other fingers.</li>
-        </ol>
 
         <label for="fingerSelect">Finger to Measure</label>
         <select id="fingerSelect">
+          <option value="Thumb">Thumb</option>
           <option value="Index">Index</option>
           <option value="Middle">Middle</option>
           <option value="Ring">Ring</option>
@@ -510,16 +489,11 @@
         </div>
       </section>
     </section>
-
-    <section class="footer">
-      <p>
-        This website/tool is provided for education and convenience only. It does not constitute medical advice and does
-        not create a physician/patient relationship. Measurements should be interpreted by a qualified healthcare
-        professional.
-      </p>
-      <p>Copyright © 2026 | Created by Daniel Whittingslow</p>
-    </section>
   </main>
+
+  <footer>
+    This tool is for education and measurement support only. It does not constitute medical advice and does not create a physician-patient relationship.
+  </footer>
 
   <script>
     const PENNY_DIAMETER_MM = 19.05;
@@ -673,7 +647,7 @@
 
     function updateResultsTable() {
       if (!measurements.length) {
-        resultsBody.innerHTML = `<tr><td colspan="4" class="small">No measurements yet.</td></tr>`;
+        resultsBody.innerHTML = '<tr><td colspan="4" class="small">No measurements yet.</td></tr>';
         return;
       }
 
@@ -696,8 +670,6 @@
 
       if (pendingPoints.length === 1) {
         calibration.pennyPointA = point;
-        calibration.pennyPointB = null;
-        calibration.pixelsPerMm = null;
         setStatus("First penny edge saved. Now click the opposite edge.", "good");
       }
 
@@ -869,12 +841,10 @@
       if (pendingPoints.length > 0) {
         pendingPoints.pop();
 
-        if (mode === "calibrate") {
-          if (pendingPoints.length === 0) {
-            calibration.pennyPointA = null;
-            calibration.pennyPointB = null;
-            calibration.pixelsPerMm = null;
-          }
+        if (mode === "calibrate" && pendingPoints.length === 0) {
+          calibration.pennyPointA = null;
+          calibration.pennyPointB = null;
+          calibration.pixelsPerMm = null;
         }
 
         redraw();
